@@ -2,7 +2,7 @@ package jsons
 
 import (
 	"fmt"
-	"github.com/typenameman/gotools/unicodes"
+	"github.com/r-rosy/General/unicodes"
 	"io"
 	"io/ioutil"
 	"net/http"

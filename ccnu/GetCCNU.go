@@ -1,4 +1,4 @@
-package model
+package ccnu
 
 import (
 	"encoding/json"

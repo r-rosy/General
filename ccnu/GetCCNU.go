@@ -51,31 +51,36 @@ func GetUserInfoFormOne(sid string, pwd string) (SuInfo, error) {
 		log.Println(err)
 		return suInfo, err
 	}
-
+	//fmt.Println(1)
 	jar, err := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
 	if err != nil {
 		log.Println(err)
 		return suInfo, err
 	}
+	//fmt.Println(2)
 	client := http.Client{
 		Timeout: time.Duration(10 * time.Second),
 		Jar:     jar,
 	}
+	//fmt.Println(3)
 	err = makeAccountRequest(sid, pwd, params, &client)
 	// err := MakeAccountRequest( "", "", params, &client)
 	if err != nil {
 		log.Println(err)
 		return suInfo, err
 	}
+	//fmt.Println(4)
 	// MakeXKRequest(&client)
-	pt, err := MakeONERequest(&client)
+	/*pt, err := MakeONERequest(&client)
 	if err != nil {
 		log.Println(err)
 		return suInfo, err
 	}
+	fmt.Println(5)
 	pt = "Bearer " + pt
 	suInfo = getInfo(pt)
-	return suInfo, nil
+	fmt.Println(6)*/
+	return SuInfo{}, nil
 }
 
 func MakeONERequest(client *http.Client) (portal_token string, err error) {
